@@ -1,6 +1,6 @@
 <template>
   <div>
-      <Bejegyzes v-for="bejegyzes in bejegyzesek" :key="bejegyzes.title" :bejegyzes="bejegyzes"/>
+      <Bejegyzes v-for="bejegyzes in bejegyzesek" :key="bejegyzes.title" :bejegyzes="bejegyzes" @bejegyzes-edit="Edit"/>
   </div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
     components: {
         Bejegyzes
     },
-    props: ["bejegyzesek"]
+    props: ["bejegyzesek"],
+    methods: {
+        Edit(e){
+            this.$emit("bejegyzes-edit", e)
+        }
+    }
 }
 </script>

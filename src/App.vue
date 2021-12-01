@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Blog :bejegyzesek="posts"/>
+    <Blog :bejegyzesek="posts" @bejegyzes-edit="Edit"/>
   </div>
 </template>
 
@@ -32,6 +32,18 @@ export default {
           body: 'Ez a törzse az negyedik postnak'
         },
       ]
+    }
+  },
+  methods: {
+    Edit(e){
+      this.posts.map(function (todo) {
+        if(e.old.title != todo.title){
+          return todo
+        }
+        todo.title = e.new.title
+        todo.body = e.new.body
+        return todo
+      })
     }
   }
 }
