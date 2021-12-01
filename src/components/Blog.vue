@@ -1,6 +1,6 @@
 <template>
   <div>
-      <Bejegyzes v-for="bejegyzes in bejegyzesek" :key="bejegyzes.title" />
+      <Bejegyzes v-for="bejegyzes in bejegyzesek" :key="bejegyzes.title" :bejegyzes="bejegyzes"/>
   </div>
 </template>
 
